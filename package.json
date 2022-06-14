@@ -1,0 +1,32 @@
+{
+		"name": "larods-core",
+		"version": "1.0.0",
+		"description": "Plugin contained the core functionalities to work with clients theme",
+		"main": "dist/scripts/index.js",
+		"author": "Victor Larodiel <me@larods.com.br> (https://larods.com.br)",
+		"license": "MIT",
+		"devDependencies": {
+				"@babel/core": "^7.18.5",
+				"@babel/preset-env": "^7.18.2",
+				"@wordpress/babel-preset-default": "^6.12.0",
+				"@wordpress/components": "^19.12.0",
+				"@wordpress/eslint-plugin": "^12.4.0",
+				"@wordpress/scripts": "^23.2.0",
+				"cssnano": "^5.1.11",
+				"gulp": "^4.0.2",
+				"gulp-babel": "^8.0.0",
+				"gulp-concat": "^2.6.1",
+				"gulp-eslint-new": "^1.5.0",
+				"gulp-flatmap": "^1.0.2",
+				"gulp-postcss": "^9.0.1",
+				"gulp-uglify-es": "^3.0.0",
+				"postcss": "^8.4.14",
+				"postcss-import": "^14.1.0",
+				"postcss-nested": "^5.0.6"
+		},
+		"scripts": {
+				"plugin-zip": "wp-scripts plugin-zip",
+				"build:blocks": "gulp blocks"
+		},
+		"dependencies": {}
+}

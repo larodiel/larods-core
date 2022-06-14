@@ -1,0 +1,9 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+	"name": "larods-core/yt-video",
+  "title": "ACF Block Sample",
+  "icon": "block-default",
+	"category": "larods-blocks",
+  "example": {}
+}

@@ -8,6 +8,13 @@ wp-content/*
 !wp-content/plugins/
 !wp-content/themes/
 
+#ignore generated files
+dist/
+
+#cache files
+cache/
+.cache/
+
 # ignore these plugins
 wp-content/plugins/hello.php
 
