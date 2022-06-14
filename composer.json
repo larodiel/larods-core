@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "psr-4": {
+            "LarodsCoreApp\\": "classes/",
+            "LarodsCoreBlocks\\": "blocks/",
+            "LarodsCoreApp\\Contracts\\": "classes/contracts/"
+        }
+    },
+    "require": {
+        "twig/twig": "^3.0"
+    }
+}
