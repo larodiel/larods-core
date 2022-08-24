@@ -25,10 +25,6 @@ define('LRD_CORE_URL', plugin_dir_url(__FILE__));
 
 require 'vendor/autoload.php';
 
-add_filter('lrd_core_render_template', function () use ($twig) {
-    return $twig;
-});
-
 use LarodsCoreBlocks\LoadBlocks;
 use LarodsCoreApp\AssetsLoad;
 

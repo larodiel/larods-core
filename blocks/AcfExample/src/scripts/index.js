@@ -1,1 +1,1 @@
-console.log('this is an example of a block on larods-core')
+//Your JS here

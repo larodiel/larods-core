@@ -13,7 +13,7 @@ class BlockTemplateRender
         ]);
 
         $this->template = new \Twig\Environment($loader, [
-            //'cache' => LRD_CORE_PATH . '/cache',
+            'cache' => LRD_CORE_PATH . '/cache',
         ]);
     }
 

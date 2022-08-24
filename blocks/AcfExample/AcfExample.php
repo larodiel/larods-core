@@ -7,9 +7,25 @@ use LarodsCoreBlocks\BlockTemplateRender;
 
 class AcfExample extends BlockTemplateRender implements Blocks
 {
+    public $acf;
+
+    public function __construct()
+    {
+        $this->acf = new AcfExampleFields();
+
+        add_action('wp_enqueue_scripts', [$this, 'slickSlideAssets']);
+        add_action('admin_enqueue_scripts', [ $this, 'slickSlideAssets']);
+    }
+
     public function getBlockJsonPath(): string
     {
         return __DIR__;
+    }
+
+    public function slickSlideAssets() {
+        wp_enqueue_style('slick-carousel-theme', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css', false);
+        wp_enqueue_style('slick-carousel-css', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css', false);
+        wp_enqueue_script('slick-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js', ['jquery'], false, true);
     }
 
     public function registerBlock()
@@ -29,19 +45,16 @@ class AcfExample extends BlockTemplateRender implements Blocks
 
         $blockData->enqueue_style = LRD_CORE_URL . '/blocks/AcfExample/dist/styles/block.css';
         $blockData->enqueue_script = LRD_CORE_URL . '/blocks/AcfExample/dist/scripts/block.min.js';
+        $blockData->mode = 'auto';
 
         acf_register_block_type($blockData);
     }
 
     public function renderBlock($attributes): string
     {
+        //Get the fields created on ACF
         $field = $attributes['data'];
-
-        if ($field['b_ythv_thumbnail']) {
-            $field['b_ythv_thumbnail'] = wp_get_attachment_image($field['b_ythv_thumbnail']);
-        }
-
-        $attributes['data'] = $field;
+        $attributes['data'] = $this->acf->sanitizeData($field );
 
         return $this->renderTemplate('main.twig', __DIR__, $attributes);
     }
